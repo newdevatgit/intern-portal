@@ -1,12 +1,80 @@
-# React + Vite
+# 🌐 Intern Portal – She Can Foundation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the **Intern Portal** – a simple, elegant, and responsive web dashboard built as part of an internship project at **She Can Foundation**.
 
-Currently, two official plugins are available:
+This project demonstrates the ability to design and develop a full-stack web application using **React**, **Tailwind CSS**, and modern development practices.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🎯 Project Objective
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The purpose of this Intern Portal is to:
+- Provide interns a quick way to access their personal dashboard
+- Display basic intern information like name, referral code, and donations raised
+- Showcase rewards and unlockables earned during the internship
+- Serve as a demonstration of frontend + backend integration with dummy data
+
+---
+
+## ✨ Features
+
+- 🔐 **Login & Signup Pages**
+- 📊 **Dashboard** displaying:
+  - Intern name
+  - Referral code (e.g., `yourname2025`)
+  - Total donations raised (fetched from dummy backend or static API)
+  - Static rewards section based on donation thresholds
+- 
+
+---
+
+## 🚀 Technologies Used
+
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [React Router](https://reactrouter.com/)
+- [Vite](https://vitejs.dev/) for fast bundling and development
+
+---
+
+## 🛠️ Backend (Planned)
+
+- REST API using Firebase or Express (serving dummy user data)
+- Future enhancements may include:
+  - Leaderboard from backend
+  - Dynamic donations update
+  - Firebase authentication
+
+---
+
+## 💼 Internship Details
+
+This project was built as part of my internship with **She Can Foundation**.  
+It reflects my ability to plan, build, and style modern web apps from scratch.
+
+---
+
+## 📝 To-Do (Planned Enhancements)
+
+- [ ] Firebase integration (authentication and Firestore)
+- [ ] Leaderboard with dynamic data
+- [ ] Mobile responsiveness improvements
+- [ ] Hosting (on Vercel or Firebase)
+
+---
+
+## 📸 Preview (Coming Soon)
+
+Screenshots or live demo links will be added here.
+
+---
+
+## 👤 Author
+
+**Arvind Singh**  
+Frontend Developer Intern  
+_She Can Foundation_
+
+---
+
+> Feel free to contribute or If you like this , give a Star.
