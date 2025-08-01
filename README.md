@@ -63,18 +63,18 @@ It reflects my ability to plan, build, and style modern web apps from scratch.
 
 ---
 
-## 📸 Preview (Coming Soon)
+## 📸 Preview 
 
-Screenshots or live demo links will be added here.
+### 🔹 Login page
+![Sign in](src/assets/sign-in.png)
 
 ---
 
 ## 👤 Author
 
 **Arvind Singh**  
-Frontend Developer Intern  
-_She Can Foundation_
 
----
 
-> Feel free to contribute or If you like this , give a Star.
+## ⭐ Show Your Support
+
+If you like this project, give it a ⭐ on GitHub or share it!
