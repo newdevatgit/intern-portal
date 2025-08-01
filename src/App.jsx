@@ -1,22 +1,33 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Login from './pages/Login.jsx';
-import Signup from './pages/Signup';
-import Dashboard from './pages/Dashboard';
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Dashboard from "./pages/Dashboard";
+import Sidebar from "./components/Sidebar";
+
+function Layout() {
+  const location = useLocation();
+  const isDashboard = location.pathname.startsWith("/dashboard");
+
+  return (
+    <div className="flex">
+      {isDashboard && <Sidebar />}
+
+      <div className="flex-1">
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/profile" element={<div className="p-10 text-2xl">Profile Page</div>} />
+        </Routes>
+      </div>
+    </div>
+  );
+}
 
 export default function App() {
   return (
     <BrowserRouter>
-      <nav className="bg-blue-600 text-white px-6 py-4 flex gap-4 font-medium shadow-md">
-        <Link to="/" className="hover:underline">Login</Link>
-        <Link to="/signup" className="hover:underline">Signup</Link>
-        <Link to="/dashboard" className="hover:underline">Dashboard</Link>
-      </nav>
-
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Routes>
+      <Layout />
     </BrowserRouter>
   );
 }
