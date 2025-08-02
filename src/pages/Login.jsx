@@ -33,23 +33,23 @@ export default function Login() {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-100 text-gray-800 animate-slide-fade-left">
-      {/* Left Side */}
-      <div className="w-1/2 bg-blue-600 text-white p-12 flex flex-col justify-center rounded shadow-lg">
-        <h1 className="text-7xl text-left font-extrabold mb-4 animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-3 text-white">
+    <div className="flex flex-col md:flex-row min-h-screen bg-gray-100 text-gray-800 animate-slide-fade-left">
+      {/* Branding Section */}
+      <div className="md:w-1/2 w-full bg-blue-600 text-white p-10 md:p-12 flex flex-col justify-center items-start rounded-b-3xl md:rounded-none md:rounded-r-3xl shadow-lg">
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 animate-typing whitespace-nowrap border-r-4 pr-3 text-left overflow-hidden border-r-white text-white">
           Welcome Intern!
         </h1>
-        <p className="text-lg text-left opacity-90">
+        <p className="text-base md:text-lg opacity-90">
           Internship with Purpose: Connect, contribute, and grow with She Can Foundation.
         </p>
       </div>
 
-      {/* Right Side */}
-      <div className="w-1/2 bg-white flex flex-col justify-center px-10 py-16 rounded-l-3xl shadow-inner">
+      {/* Form Section */}
+      <div className="md:w-1/2 w-full bg-white flex flex-col justify-center px-6 md:px-10 py-10 md:py-16 shadow-inner">
         <div className="max-w-md w-full mx-auto">
           <form className="space-y-5" onSubmit={handleEmailLogin}>
             <div className="text-center mb-4">
-              <h2 className="text-3xl font-bold">Login to Dashboard</h2>
+              <h2 className="text-2xl md:text-3xl font-bold">Login to Dashboard</h2>
             </div>
 
             <div>
@@ -58,10 +58,10 @@ export default function Login() {
               </label>
               <input
                 type="email"
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                placeholder="Enter your email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                placeholder="Enter your email address"
                 required
               />
             </div>
@@ -72,10 +72,10 @@ export default function Login() {
               </label>
               <input
                 type="password"
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                placeholder="Enter your password"
                 required
               />
             </div>
