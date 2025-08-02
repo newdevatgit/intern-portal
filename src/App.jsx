@@ -4,6 +4,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import Sidebar from "./components/Sidebar";
+import Leaderboard from "./pages/Leaderboard";
+import Profile from "./pages/Profile";
 
 function Layout() {
   const location = useLocation();
@@ -42,10 +44,8 @@ function Layout() {
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route
-            path="/dashboard/profile"
-            element={<div className="p-10 text-2xl">Profile Page</div>}
-          />
+          <Route path="/dashboard/leaderboard" element={<Leaderboard />} />
+          <Route path="/dashboard/profile" element={<Profile />} />
         </Routes>
       </div>
     </div>

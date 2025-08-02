@@ -23,12 +23,12 @@ function Sidebar({ open, setOpen }) {
   return (
     <>
       {/* Desktop Sidebar (original design) */}
-      <aside className="hidden md:flex fixed top-0 left-0 h-screen w-56 bg-gray-100 text-black flex-col justify-between shadow-lg z-40">
+      <aside className="hidden md:flex fixed top-0 left-0 h-screen w-56 bg-white text-black flex-col justify-between shadow-lg z-40">
 
         {/* Top Logo/Title */}
-        <div className="p-4 bg-gray-100 rounded-3xl">
-          <h1 className="text-2xl underline text-center font-extrabold tracking-wide">Intern Portal</h1>
-          <p className="text-sm text-center underline text-gray-500">She Can Foundation</p>
+        <div className="p-4 bg-blue-600 text-white text-center">
+          <h1 className="text-2xl text-center font-extrabold tracking-wide">Intern Portal</h1>
+          <p className="text-sm text-center underline text-gray-100">She Can Foundation</p>
         </div>
 
         {/* Navigation Links */}

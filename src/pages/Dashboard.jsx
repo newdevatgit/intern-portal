@@ -7,7 +7,7 @@ export default function Dashboard() {
   const intern = {
     name: "Arvind Singh",
     referralCode: "arvind2025",
-    donations: 1250,
+    donations: 1500,
   };
 
   const handleSignOut = () => {
@@ -37,7 +37,7 @@ export default function Dashboard() {
         <section>
           <p className="text-base text-center bg-gray-100 p-3 rounded-3xl">
             Referral Code:{" "}
-            <span className="text-black font-bold">{intern.referralCode}</span>
+            <span className="text-black font-bold">12345</span>
           </p>
         </section>
 
