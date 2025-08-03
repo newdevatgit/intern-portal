@@ -18,7 +18,7 @@ export default function Dashboard() {
     <div className="min-h-screen bg-gray-100 text-black p-4 sm:p-6">
       {/* Header */}
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-        <img src="public/logo.png" alt="logo" className="w-12 h-12" />
+        <img src="/logo.png" alt="logo" className="w-12 h-12" />
         <h2 className="text-lg sm:text-xl font-bold pl-1 sm:pl-4">
           Welcome back, <span className="text-blue-600">{intern.name}</span> 👋
         </h2>

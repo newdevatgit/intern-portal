@@ -1,11 +1,14 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useState } from "react";
+
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import Sidebar from "./components/Sidebar";
 import Leaderboard from "./pages/Leaderboard";
 import Profile from "./pages/Profile";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { AuthProvider } from "./context/AuthContext";
 
 function Layout() {
   const location = useLocation();
@@ -15,7 +18,6 @@ function Layout() {
 
   return (
     <div className="min-h-screen bg-gray-100 relative">
-      {/* Sidebar and Topbar (Dashboard routes only) */}
       {isDashboard && (
         <>
           {/* Mobile Topbar */}
@@ -34,7 +36,7 @@ function Layout() {
         </>
       )}
 
-      {/* Main Page Content */}
+      {/* Page Content */}
       <div
         className={`flex-1 transition-all duration-300 ${
           isDashboard ? "pt-14 md:pt-0 md:pl-56" : ""
@@ -43,9 +45,32 @@ function Layout() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/dashboard/leaderboard" element={<Leaderboard />} />
-          <Route path="/dashboard/profile" element={<Profile />} />
+
+          {/* Protected Routes */}
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/leaderboard"
+            element={
+              <ProtectedRoute>
+                <Leaderboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </div>
     </div>
@@ -54,8 +79,10 @@ function Layout() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Layout />
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Layout />
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
