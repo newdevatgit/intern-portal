@@ -9,6 +9,7 @@ This project demonstrates the ability to design and develop a full-stack web app
 
 Explore the project live: [Intern Portal on Vercel](https://intern-portal-five.vercel.app/)
 
+---
 
 ## 🎯 Project Objective
 
