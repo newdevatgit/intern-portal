@@ -5,6 +5,10 @@ Welcome to the **Intern Portal** – a simple, elegant, and responsive web dashb
 This project demonstrates the ability to design and develop a full-stack web application using **React**, **Tailwind CSS**, and modern development practices.
 
 ---
+## 🔗 Live Demo
+
+Explore the project live: [Intern Portal on Vercel](https://intern-portal-five.vercel.app/)
+
 
 ## 🎯 Project Objective
 
@@ -55,6 +59,7 @@ It showcases my ability to:
 - Manage project UI/UX efficiently
 
 ---
+
 
 ## 📸 Preview
 
