@@ -1,7 +1,7 @@
 export default function Profile() {
   const intern = {
-    name: "Arvind Singh",
-    email: "arvind@example.com",
+    name: "xyz",
+    email: "email@example.com",
     referralCode: "12345",
     joinedDate: "2024-07-15",
     totalDonations: 1500,

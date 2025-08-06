@@ -1,43 +1,56 @@
-import { FiLogOut } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { FiLogOut } from "react-icons/fi";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "../firebase"; // update this path if needed
 
 export default function Dashboard() {
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
 
-  const intern = {
-    name: "Arvind Singh",
-    referralCode: "arvind2025",
-    donations: 1500,
-  };
+  const [donations] = useState(1500); // static or fetched from Firestore
 
-  const handleSignOut = () => {
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+      } else {
+        navigate("/");
+      }
+    });
+    return () => unsubscribe();
+  }, [navigate]);
+
+  const handleSignOut = async () => {
+    await signOut(auth);
     navigate("/");
   };
 
+  const getDisplayName = () => {
+    if (!user?.email) return "Intern";
+    const name = user.email.split("@")[0];
+    return name.charAt(0).toUpperCase() + name.slice(1);
+  };
+
   return (
-    <div className="min-h-screen bg-gray-100 text-black p-4 sm:p-6">
+    <div className="min-h-screen flex flex-col justify-between bg-gray-100 text-black p-4 sm:p-6">
       {/* Header */}
-      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-        <img src="/logo.png" alt="logo" className="w-12 h-12" />
-        <h2 className="text-lg sm:text-xl font-bold pl-1 sm:pl-4">
-          Welcome back, <span className="text-blue-600">{intern.name}</span> 👋
-        </h2>
-        <button
-          onClick={handleSignOut}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white font-medium rounded-full shadow hover:bg-blue-700 transition"
-        >
-          <FiLogOut className="text-lg" />
-          Sign Out
-        </button>
+      <div className="max-w-6xl mx-auto w-full flex flex-col sm:flex-row justify-between items-center gap-4 mb-6">
+        <div className="flex flex-col sm:flex-row items-center gap-3">
+          <img src="/logo.png" alt="logo" className="w-14 h-14" />
+          <h2 className="text-lg sm:text-xl font-bold text-center sm:text-left">
+            Welcome back, <span className="text-blue-600">{getDisplayName()}</span> 👋
+          </h2>
+        </div>
       </div>
 
       {/* Main Card Container */}
-      <div className="max-w-6xl mx-auto bg-white shadow rounded-3xl p-4 sm:p-8 space-y-10">
+      <div className="max-w-6xl mx-auto bg-white shadow rounded-3xl p-4 sm:p-8 space-y-10 w-full">
         {/* Referral Code */}
         <section>
           <p className="text-base text-center bg-gray-100 p-3 rounded-3xl">
             Referral Code:{" "}
-            <span className="text-black font-bold">12345</span>
+            <span className="text-black font-bold">{user?.email?.split("@")[0] || "loading..."}</span>
           </p>
         </section>
 
@@ -45,7 +58,7 @@ export default function Dashboard() {
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-gray-100 rounded-3xl p-6 text-center sm:text-left">
             <h3 className="text-sm font-semibold text-blue-700">Donations Raised</h3>
-            <p className="text-2xl font-bold mt-2 text-blue-800">₹{intern.donations}</p>
+            <p className="text-2xl font-bold mt-2 text-blue-800">₹{donations}</p>
           </div>
           <div className="bg-gray-100 rounded-3xl p-6 text-center">
             <h3 className="text-sm bg-white text-center rounded-3xl p-2 font-bold text-blue-700">
@@ -81,6 +94,17 @@ export default function Dashboard() {
             </button>
           </div>
         </section>
+      </div>
+
+      {/* Sign Out Button (bottom, hidden on mobile) */}
+      <div className="hidden sm:flex justify-end mt-6 px-4">
+        <button
+          onClick={handleSignOut}
+          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white font-medium rounded-full shadow hover:bg-blue-700 transition"
+        >
+          <FiLogOut className="text-lg" />
+          Sign Out
+        </button>
       </div>
     </div>
   );

@@ -35,12 +35,13 @@ export default function Login() {
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-gray-100 text-gray-800 animate-slide-fade-left">
       {/* Branding Section */}
-      <div className="md:w-1/2 w-full bg-blue-600 text-white p-10 md:p-12 flex flex-col justify-center items-start rounded-b-3xl md:rounded-none md:rounded-r-3xl shadow-lg">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 animate-typing whitespace-nowrap border-r-4 pr-3 text-left overflow-hidden border-r-white text-white">
+      <div className="w-full md:w-1/2 bg-blue-600 text-white p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-center items-start rounded-b-3xl md:rounded-none md:rounded-r-3xl shadow-lg">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl md:text-center lg:text-7xl font-extrabold mb-4 animate-typing whitespace-nowrap overflow-hidden border-r-4 pr-3 border-r-white text-left text-white">
           Welcome Intern!
         </h1>
-        <p className="text-base md:text-lg opacity-90">
-          Internship with Purpose: Connect, contribute, and grow with She Can Foundation.
+        <p className="text-sm sm:text-base md:text-lg opacity-90">
+          Internship with Purpose: Connect, contribute, and grow with She Can
+          Foundation.
         </p>
       </div>
 
@@ -49,7 +50,9 @@ export default function Login() {
         <div className="max-w-md w-full mx-auto">
           <form className="space-y-5" onSubmit={handleEmailLogin}>
             <div className="text-center mb-4">
-              <h2 className="text-2xl md:text-3xl font-bold">Login to Dashboard</h2>
+              <h2 className="text-2xl md:text-3xl font-bold">
+                Login to Dashboard
+              </h2>
             </div>
 
             <div>
@@ -117,7 +120,10 @@ export default function Login() {
 
           <p className="text-sm text-center mt-6">
             Don’t have an account?{" "}
-            <a href="/signup" className="text-blue-600 hover:underline font-medium">
+            <a
+              href="/signup"
+              className="text-blue-600 hover:underline font-medium"
+            >
               Create Account
             </a>
           </p>
